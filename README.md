@@ -11,3 +11,4 @@
 Если аргумент, переданный при запуске, не считается числом — сообщите об этом ошибкой и завершите программу.
 
 ![Иллюстрация к проекту](https://github.com/TomMonaco27/NodeJS/blob/lesson-1/1_HomeTaskNodeJS_Prime_Numbers_in_TrafficLightColors.png)
+![Иллюстрация к проекту](https://github.com/TomMonaco27/NodeJS/blob/lesson-1/1_HomeTaskNodeJS_Prime_Numbers_in_TrafficLightColors2.png)
