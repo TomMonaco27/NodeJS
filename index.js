@@ -17,7 +17,6 @@ function isPrime(n) {
     if (n < 2) { 
 	return false;
     }
-
     var q = Math.floor(Math.sqrt(n));
 
     for (var i = 2; i <= q; i++) {
@@ -27,7 +26,6 @@ function isPrime(n) {
     }
     return true;
 }
-
 colors.enable();
 console.log('----------------------------------');
 console.log('Program "Prime Numbers in colors"\n');
@@ -61,7 +59,6 @@ if (prime_arr.length == 0) {
         colors_el++;
     } 
 }
-
 console.log('\nEnd of program.');
 console.log('----------------------------------');
 colors.disable();
