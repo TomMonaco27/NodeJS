@@ -10,41 +10,31 @@
 
 const fs = require('fs');
 const path = require('path');
-
-var fileReadingIsEnd = false;
-let fileToRead = './access1.log';
-let encoding = 'utf-8';
-
-
-let findArr = ['89.123.1.41', '34.48.240.111'];
 const rs = fs.createReadStream(fileToRead, encoding);
 const ws1 = fs.createWriteStream(path.join(__dirname, findArr[0] + '_request.log'), { flags: 'a', encoding: 'utf8' });
 const ws2 = fs.createWriteStream(path.join(__dirname, findArr[1] + '_request.log'), { flags: 'a', encoding: 'utf8' });
+
+var fileReadingIsEnd = false;
+
+let fileToRead = './access1.log';
+let encoding = 'utf-8';
+let findArr = ['89.123.1.41', '34.48.240.111'];
 let tempArr = [];
 let forgottenTrash = [];
 
 rs.on('error', () => console.log(err));
 rs.on('data', (chunk) => {
-    
     console.log('Chunk');
-    tempArr = chunk.split("\n");
-    
-    forgottenTrash =  tempArr[tempArr.length - 1] // arr.length - 1, arr.pop()
-    // console.log(tempArr); 
-    // console.log(forgottenTrash); 
-    
-    for(let i = 0; i < tempArr.length-1; i++) {
+    tempArr = chunk.split("\n");    
+    for(let i = 0; i < tempArr.length; i++) {
         if (tempArr[i].includes(findArr[0])) {
             ws1.write(tempArr[i]);
-
         }
         if (tempArr[i].includes(findArr[1])) {
             ws2.write(tempArr[i]);
         }
     }
-    });
-
-    
+    }); 
 rs.on('end', () => console.log('File reading finished'));
 fileReadingIsEnd = true;
 if (fileReadingIsEnd) {
